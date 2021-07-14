@@ -2,7 +2,7 @@
   max-width: 400px;
 }
 
-#display {
+#input-display {
   background-color: rgba(205, 227, 255, 0.507);
   text-align: right;
   height: 50px;
@@ -20,16 +20,16 @@
   line-height: 50px;
   text-align: center;
   font-size: 20px;
-  cursor: pointer;
+  cursor: pointer; /* mouse pointer effect */
 }
 
-#equal {
+#equalButton {
   border-radius: 1em;
   background-color: rgb(98, 209, 243);
   color: white;
 }
 
-#clear {
+#clearButton {
   border-radius: 1em;
   background-color: rgb(250, 125, 125);
   color: white;
