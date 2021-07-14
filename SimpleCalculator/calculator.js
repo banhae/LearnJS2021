@@ -91,7 +91,7 @@ function onEqualButtonClick() {
         expressions.push(currentNumber);
         const result = calculate(expressions[0], expressions[1], expressions[2]);
 
-        currentNumber = '';
+        currentNumber = STRING_EMPTY;
         cleanExpressions();
         expressions.push(result);
         renderingInputDisplay(result);
@@ -112,7 +112,7 @@ function updateOperator(inputOperator) {
         // [?]
         case 0:
             expressions.push(currentNumber);
-            currentNumber = '';
+            currentNumber = STRING_EMPTY;
             expressions.push(inputOperator);
             // TODO : Update Output
             break;
@@ -124,7 +124,7 @@ function updateOperator(inputOperator) {
         // [number, operator, ?]
         case 2:
             expressions.push(currentNumber);
-            currentNumber = '';
+            currentNumber = STRING_EMPTY;
             const result = calculate(expressions[0], expressions[1], expressions[2]);
             cleanExpressions();
 
