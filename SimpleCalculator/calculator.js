@@ -1,14 +1,10 @@
 /**
  * Undo, Redo only able to control inputted number
- * 
- * Naming Pattern
- * - Event hadler : Put 'on' at first in the name.
- * - Boolean : Put 'b' at first in the name.
  */
 
 // Should be able to change the value.
-let bIsOperator = new Boolean(false)
-let bIsFirstZero = new Boolean(true)
+let isOperator = new Boolean(false)
+let isFirstZero = new Boolean(true)
 // FIXME : Can change to const array?
 let currentNumber = ''
 
@@ -22,8 +18,7 @@ const inputDisplay = document.getElementById('input-display')
 const outputDisplay = document.getElementById('output-display')
 const buttons = Array.from(document.getElementsByClassName('button'))
 
-// TODO : Update comment (Why is calling this function on body?)
-// Call body in html code
+// Call initialize() when completely loaded all content
 function initialize() {
     // Rendering initial number(0)
     renderingInputDisplay(0)
@@ -58,27 +53,27 @@ function onNumberButtonClick(event) {
     const number = event.target.innerText
 
     if (number === '0') {
-        if (bIsFirstZero) {
+        if (isFirstZero) {
             // Ignore click when the first number is 0.
         } else {
             updateNumber(number)
-            bIsFirstZero = false
+            isFirstZero = false
         }
     } else {
         updateNumber(number)
-        bIsFirstZero = false
+        isFirstZero = false
     }
 
-    bIsOperator = false
+    isOperator = false
 }
 
 // Handle oprator button click
 function onOperatorButtonClick(event) {
-    if (!bIsOperator) {
+    if (!isOperator) {
         const operator = event.target.innerText
 
         updateOperator(operator)
-        bIsFirstZero = true
+        isFirstZero = true
     }
 }
 
@@ -95,7 +90,7 @@ function onEqualButtonClick() {
         cleanExpressions();
         expressions.push(result);
         renderingInputDisplay(result);
-        bIsOperator = false
+        isOperator = false
         // TODO : Update Output
     }
 }
@@ -105,7 +100,6 @@ function updateNumber(number) {
     renderingInputDisplay(currentNumber)
 }
 
-// FIXME - need new logic
 // TODO : Prevent dummy value through <div>
 function updateOperator(inputOperator) {
     switch (expressions.length) {
@@ -137,7 +131,7 @@ function updateOperator(inputOperator) {
             break;
     }
 
-    bIsOperator = true;
+    isOperator = true;
 }
 
 // FIXME : Renaming
