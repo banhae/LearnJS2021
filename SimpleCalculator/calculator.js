@@ -38,6 +38,7 @@ function onButtonClick(event) {
             onEqualButtonClick()
             break;
         case 'clearButton':
+            onClearButtonClick();
             break;
         case 'undoButton':
             break;
@@ -93,6 +94,14 @@ function onEqualButtonClick() {
         isOperator = false
         // TODO : Update Output
     }
+}
+
+function onClearButtonClick() {
+    renderingInputDisplay(0);
+    cleanExpressions();
+    currentNumber = STRING_EMPTY;
+    isOperator = false;
+    isFirstZero = true;
 }
 
 function updateNumber(number) {
